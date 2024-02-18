@@ -4,14 +4,14 @@
       <div class="navbar-brand">
         <div class="navbar-item is-size-4 has-text-weight-bold">Agenda</div>
 
-        <a @click.prevent="navToggle" :class="{ 'is-active': showMobileNav }" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a @click.prevent="navToggle" :class="{ 'is-active': showMobileNav }" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="navbarBurgerRef">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': showMobileNav }">
+      <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': showMobileNav }" ref="target">
         <div class="navbar-end">
           <router-link @click="showMobileNav = false" class="navbar-item" active-class="is-active" :to="'/'">Notes</router-link>
           <router-link @click="showMobileNav = false" class="navbar-item" active-class="is-active" :to="'/stats'">Stats</router-link>
@@ -28,6 +28,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import router from "@/router";
+import { onClickOutside } from "@vueuse/core";
 
 /**
  * Mobile Nav
@@ -37,6 +38,21 @@ const showMobileNav = ref(false);
 const navToggle = () => {
   showMobileNav.value = !showMobileNav.value;
 };
+
+/**
+ * Click outside to close
+ */
+const target = ref(null);
+const navbarBurgerRef = ref(null);
+onClickOutside(
+  target,
+  (event) => {
+    showMobileNav.value = false;
+  },
+  {
+    ignore: [navbarBurgerRef],
+  }
+);
 </script>
 
 <style>

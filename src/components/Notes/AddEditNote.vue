@@ -3,7 +3,7 @@
     <label v-if="props.label" class="label has-text-white">{{ label }}</label>
     <div class="field">
       <div class="control">
-        <textarea :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" class="textarea" :placeholder="placeHolder" ref="textAreaRef" />
+        <textarea :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" class="textarea" :placeholder="placeHolder" ref="textAreaRef" v-Autofocus maxlength="100" />
       </div>
     </div>
     <div class="field is-grouped is-grouped-right">
@@ -16,6 +16,7 @@
 
 <script setup>
 import { ref } from "vue";
+import { vAutofocus } from "@/directives/vAutofocus";
 /**
  * Props
  */
