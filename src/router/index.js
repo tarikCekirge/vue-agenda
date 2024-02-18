@@ -12,6 +12,11 @@ const routes = [
         name: 'stats',
         component: () => import('../views/ViewStats.vue')
     },
+    {
+        path: '/edit/:id',
+        name: 'edit',
+        component: () => import('../views/ViewEditNote.vue')
+    },
 ]
 
 const router = createRouter({
