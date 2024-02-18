@@ -1,12 +1,7 @@
 <template>
   <NavBar />
-  <!-- <RouterView /> -->
   <div class="container is-max-desktop px-2 py-4">
-    <router-view v-slot="{ Component }">
-      <keep-alive>
-        <component :is="Component" />
-      </keep-alive>
-    </router-view>
+    <RouterView />
   </div>
 </template>
 

@@ -13,8 +13,8 @@
 
       <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': showMobileNav }">
         <div class="navbar-end">
-          <router-link class="navbar-item" active-class="is-active" :to="'/'">Notes</router-link>
-          <router-link class="navbar-item" active-class="is-active" :to="'/stats'">Stats</router-link>
+          <router-link @click="showMobileNav = false" class="navbar-item" active-class="is-active" :to="'/'">Notes</router-link>
+          <router-link @click="showMobileNav = false" class="navbar-item" active-class="is-active" :to="'/stats'">Stats</router-link>
         </div>
       </div>
     </div>
@@ -37,18 +37,6 @@ const showMobileNav = ref(false);
 const navToggle = () => {
   showMobileNav.value = !showMobileNav.value;
 };
-
-// Function to handle route change
-const handleRouteChange = () => {
-  showMobileNav.value = false; // Close mobile nav when route changes
-};
-
-// Register beforeRouteUpdate guard to handle route changes
-// router.beforeRouteUpdate(handleRouteChange);
-router.beforeEach((to, from, next) => {
-  handleRouteChange(); // Call the handleRouteChange function directly
-  next();
-});
 </script>
 
 <style>
