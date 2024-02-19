@@ -1,12 +1,15 @@
+
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+
 const firebaseConfig = {
-    apiKey: "AIzaSyCEWsr4OGxV3_AlPIwDsL42zewNZQtc9uE",
-    authDomain: "agenda-242c6.firebaseapp.com",
-    projectId: "agenda-242c6",
-    storageBucket: "agenda-242c6.appspot.com",
-    messagingSenderId: "227541766210",
-    appId: "1:227541766210:web:495dd39772e1f77a755ddb"
+    apiKey: "AIzaSyC025zs_Bpv20__Oekrw0OIXibhsJ6YYec",
+    authDomain: "agenda-12808.firebaseapp.com",
+    projectId: "agenda-12808",
+    storageBucket: "agenda-12808.appspot.com",
+    messagingSenderId: "713357800656",
+    appId: "1:713357800656:web:1a12d96886eecd25ac9ad5"
 };
 
 const app = initializeApp(firebaseConfig);
