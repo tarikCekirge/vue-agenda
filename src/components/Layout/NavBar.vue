@@ -12,6 +12,9 @@
       </div>
 
       <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': showMobileNav }" ref="target">
+        <div class="navber-start">
+          <button v-if="storeAuth.user.id" @click="storeAuth.logoutUser" class="button is-small is-info mt-3 ml-3">Logout</button>
+        </div>
         <div class="navbar-end">
           <router-link @click="showMobileNav = false" class="navbar-item" active-class="is-active" :to="'/'">Notes</router-link>
           <router-link @click="showMobileNav = false" class="navbar-item" active-class="is-active" :to="'/stats'">Stats</router-link>
@@ -29,6 +32,13 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import router from "@/router";
 import { onClickOutside } from "@vueuse/core";
+import { useStoreAuth } from "@/stores/storeAuth";
+
+/**
+ * Sign Out
+ */
+
+const storeAuth = useStoreAuth();
 
 /**
  * Mobile Nav

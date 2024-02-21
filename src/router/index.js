@@ -17,6 +17,11 @@ const routes = [
         name: 'edit',
         component: () => import('../views/ViewEditNote.vue')
     },
+    {
+        path: '/auth',
+        name: 'auth',
+        component: () => import('../views/ViewAuth.vue')
+    },
 ]
 
 const router = createRouter({
